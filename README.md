@@ -34,3 +34,19 @@ mv typescript-action-main ${LessonDir}
 # 参考にするやつ
 
 https://github.com/fountainhead/action-wait-for-check
+
+# Lesson
+
+## 0-1
+
+持ってきたBoilerPlate を動かしてみる
+
+## 1-1
+
+* action.yml での パラメータの設定
+* npm chalk を使ってみる
+
+## 1-2
+
+* github にアクセスしてみる
+
