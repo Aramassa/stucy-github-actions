@@ -1,0 +1,11 @@
+name: 'Aramassa'
+description: 'this is lesson 0_1'
+author: 'me'
+inputs:
+  message:
+    required: true
+    description: 'message to show'
+    default: "hellooooow!!"
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
