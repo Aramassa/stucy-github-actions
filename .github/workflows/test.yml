@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: "./0-1"
+      - uses: "./0_1"
         with:
           milliseconds: 750
