@@ -44,4 +44,5 @@ https://github.com/fountainhead/action-wait-for-check
 ## 1-2
 
 * github にアクセスしてみる
-
+  * Issue の一覧を取得する
+  * Issue本文の中身を一部取得して、テンプレートからファイルを生成する
