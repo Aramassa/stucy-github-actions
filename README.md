@@ -1,12 +1,13 @@
 # stucy-github-actions
 github actions を作ってみる
 
-# Debug
+# Debug(Local Run)
 
 https://github.com/nektos/act
 
 ```
-act -w ${workflowname}
+npm run all && 
+act  -s GITHUB_TOKEN=${GITHUB_TOKEN} -W ${workflowname}
 ```
 
 # Lesson 作り方
@@ -21,15 +22,9 @@ unzip main.zip
 mv typescript-action-main ${LessonDir}
 ```
 
-## 修正する箇所
+## 注意事項
 
-.github/workflows/test.yml
-
-```
-- uses: actions/checkout@v2
-```
-
-この部分は act でテストする際にエラーになってしまうので、削除しておく。
+* GITHUB_TOKEN という secret がないと checkout@v2 が失敗する
 
 # 参考にするやつ
 
