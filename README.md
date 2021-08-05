@@ -32,16 +32,16 @@ https://github.com/fountainhead/action-wait-for-check
 
 # Lesson
 
-## 0-1
+## 0_1
 
 持ってきたBoilerPlate を動かしてみる
 
-## 1-1
+## 1_1
 
 * action.yml での パラメータの設定
 * npm chalk を使ってみる
 
-## 1-2
+## 1_2
 
 * github にアクセスしてみる
   * Issue の一覧を取得する
