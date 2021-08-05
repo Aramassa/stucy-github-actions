@@ -1,4 +1,4 @@
-# stucy-github-actions
+# study-github-actions
 github actions を作ってみる
 
 # Debug(Local Run)
