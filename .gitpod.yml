@@ -1,2 +1,4 @@
 tasks:
-  - init: brew install act
+  - name: install dependencies
+    command: >
+      brew install act
