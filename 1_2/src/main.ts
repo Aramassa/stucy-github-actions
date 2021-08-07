@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
-import * as github from '@actions/github'
-import {wait} from './wait'
+// import * as github from '@actions/github'
+// import {wait} from './wait'
 import {Sample} from './sample'
 
 async function run(): Promise<void> {
