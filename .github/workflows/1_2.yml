@@ -16,3 +16,6 @@ jobs:
           owner: Aramassa
           repo: study-github-actions
           issue_number: ${{ github.event.inputs.issue_number }}
+      - name: check out put
+        run: |
+          cat ./tpl/1_2.yml
