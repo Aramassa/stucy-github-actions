@@ -1,0 +1,20 @@
+name: 'Your name here'
+description: 'Provide a description here'
+author: 'Your name or organization here'
+inputs:
+  token:
+    description: 'GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)'
+    default: ${{ github.token }}
+    required: false
+  owner: # change this
+    required: true
+    description: 'Repository Owner'
+  repo:
+    required: true
+    description: 'Repository Name'
+  issue_number:
+    required: true
+    description: 'Issue Number'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
