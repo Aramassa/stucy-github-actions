@@ -1,10 +1,11 @@
 import * as core from '@actions/core'
+import * as github from '@actions/github'
 import {wait} from './wait'
 import {Sample} from './sample'
 
 async function run(): Promise<void> {
   try {
-    const token: string = process.env.GITHUB_TOKEN || "";
+    const token: string = core.getInput('token') || process.env.GITHUB_TOKEN || github.context. "";
     const owner: string = core.getInput('owner');
     const repo: string = core.getInput('repo');
 

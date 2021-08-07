@@ -10,6 +10,8 @@ npm run all &&
 act  -s GITHUB_TOKEN=${GITHUB_TOKEN} -W ${workflowname}
 ```
 
+※ env: GITHUB_TOKEN は事前に設定しておくこと
+
 # Lesson 作り方
 
 https://github.com/actions/typescript-action
