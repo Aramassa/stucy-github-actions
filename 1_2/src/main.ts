@@ -1,16 +1,17 @@
 import * as core from '@actions/core'
 import {wait} from './wait'
+import {Sample} from './sample'
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
+    const token: string = process.env.GITHUB_TOKEN || "";
+    const owner: string = core.getInput('owner');
+    const repo: string = core.getInput('repo');
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+    const s:Sample = new Sample(token, owner, repo);
 
-    core.setOutput('time', new Date().toTimeString())
+    const issueNumber: string = core.getInput('issuer_number') || "2";
+    await s.createFile(issueNumber);
   } catch (error) {
     core.setFailed(error.message)
   }

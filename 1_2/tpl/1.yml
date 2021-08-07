@@ -1,0 +1,46 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: jfx-news-es
+spec:
+  schedule: "0 * * * *"
+  timezone: "Asia/Tokyo"   # Default to local machine timezone
+  startingDeadlineSeconds: 0
+  concurrencyPolicy: "Allow"      # Default to "Allow"
+  successfulJobsHistoryLimit: 3     # Default 3
+  failedJobsHistoryLimit: 4         # Default 1
+  workflowSpec:
+    serviceAccountName: argo-exec
+    entrypoint: news-es
+    templates:
+    - name: news-es
+      container:
+        image: docker.pkg.github.com/aramassa/jfx-rails/app:v0.1.0-armv7
+        command: ["bin/rake", "news:es"]
+        env:
+        - name: RAILS_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: env
+              key: ENV_NAME
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: SECRET_KEY_BASE
+        - name: BUGSNAG_KEY
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: BUGSNAG_KEY
+        - name: ELASTICSEARCH_HOST
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: ELASTICSEARCH_HOST
+        - name: ELASTICSEARCH_KEY
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: ELASTICSEARCH_KEY
